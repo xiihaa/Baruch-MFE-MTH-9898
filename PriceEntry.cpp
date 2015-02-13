@@ -17,3 +17,10 @@ int convertDate(const string & datetime){  //take the string of the format 20140
 	int theDay = stoi(datetime.substr(6, 2));
 	return theYear * 10000 + theMonth * 100 + theDay;
 }
+
+float convertTime(const string & datetime){  ////take the string of the format 20140804:10:00:00.574914, to convert to integer 36000.574914
+	int hour = stoi(datetime.substr(9, 2));
+	int min = stoi(datetime.substr(11, 2));
+	float sec = stoi(datetime.substr(13, 9));
+	return hour * 3600 + min * 60 + sec;
+}
