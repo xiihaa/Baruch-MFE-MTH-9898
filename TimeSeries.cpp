@@ -15,3 +15,8 @@ void Scrub::readfromCSV(std::fstream & ip){
 		TimeS.push_back(Tick(newline));
 	}
 }
+
+Tick Scrub::getentry(int n){
+	assert(n < TimeS.size() && n >= 0);
+	return TimeS[n];
+}
