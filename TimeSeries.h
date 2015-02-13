@@ -10,7 +10,7 @@ private:
 	std::vector<Tick> TimeS;
 public:
 	Scrub();
-	void readfromCSV(std::fstream & ip);
+	void readfromCSV(std::fstream & ip);   //readfrom CSV to build up recordvoid readfromCSV(std::fstream & ip);
 };
 
 #endif
