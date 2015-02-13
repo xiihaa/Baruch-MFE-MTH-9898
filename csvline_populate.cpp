@@ -1,3 +1,4 @@
+#include "csvline_populate.h"
 #include <cassert>
 #include <iostream>
 #include <fstream>
