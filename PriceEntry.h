@@ -1,6 +1,7 @@
 #ifndef PriceEntry_H
 #define PriceEntry_H
 
+#include "csvline_populate.h"
 #include <string>
 #include <iostream>
 
