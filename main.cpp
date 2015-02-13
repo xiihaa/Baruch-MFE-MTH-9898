@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(){
-	ifstream in("data10k.csv");
+	ifstream in("/home/xia/9898/Baruch-MFE-MTH-9898/data10k.csv");
 	Scrub newseries;
 	string s = "20140804:10:00:00.574914, 1173.56, 471577";
 	cout << 1 << endl;

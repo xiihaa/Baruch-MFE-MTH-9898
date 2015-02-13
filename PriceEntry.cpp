@@ -46,3 +46,11 @@ Tick::Tick(string CSVstring){
 	price = stof(temp[1]);
 	volume = stoi(temp[2]);
 }
+
+bool comparetickBytime(const Tick & tick1, const Tick & tick2){
+	if (tick1.date < tick2.date) return true;
+	else if (tick1.date > tick2.date) return false;
+	else{
+		return (tick1.time > tick2.time) ? false : true;
+	}
+}
