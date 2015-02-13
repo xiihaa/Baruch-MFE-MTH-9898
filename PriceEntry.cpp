@@ -24,3 +24,12 @@ float convertTime(const string & datetime){  ////take the string of the format 2
 	float sec = stoi(datetime.substr(13, 9));
 	return hour * 3600 + min * 60 + sec;
 }
+
+Tick::Tick(string CSVstring){
+	vector<string> temp;
+	csvline_populate(temp, CSVstring, ',');
+	date = convertDate(temp[0]);
+	time = convertTime(temp[0]);
+	price = stof(temp[1]);
+	volume = stoi(temp[2]);
+}

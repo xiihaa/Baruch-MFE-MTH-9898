@@ -20,6 +20,7 @@ public:
 
 	int flag;  //mark the data, to seperate signal or noise
 	friend std::ostream & operator << (std::ostream & os, const Tick & output);  //print a tick
+	Tick(std::string CSVstring); //construct a tick form the CSV string 20140804:10:00:00.574914,1173.56,471577
 };
 
 #endif
