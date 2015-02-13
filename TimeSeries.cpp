@@ -1,6 +1,7 @@
 #include "TimeSeries.h"
 #include <vector>
 #include <fstream>
+#include <assert.h>
 
 Scrub::Scrub(){
 }
@@ -17,6 +18,11 @@ void Scrub::readfromCSV(std::fstream & ip){
 }
 
 Tick Scrub::getentry(int n){
+	assert(n < TimeS.size() && n >= 0);
+	return TimeS[n];
+}
+
+Tick & Scrub::operator[] (int n){
 	assert(n < TimeS.size() && n >= 0);
 	return TimeS[n];
 }
