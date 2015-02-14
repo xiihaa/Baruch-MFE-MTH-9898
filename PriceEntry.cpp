@@ -2,6 +2,8 @@
 #include "csvline_populate.h"
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <vector>
 #include <cstdlib>
 #include <iomanip>
@@ -13,6 +15,27 @@ ostream & operator << (std::ostream & os, const Tick & output)
 	cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
 	os << "Date: " << output.date << ", Time: " << setprecision(6) << output.time << setprecision(2) << ", Price: " << output.price << ", Volume: " << setprecision(0) << output.volume;
 	return os;
+}
+
+ofstream & operator << (std::ofstream & os, const Tick & output)
+{
+	int secondint;
+	float secondfloat;
+	stringstream seconds;
+	string second;
+	string minute;
+	string hour;
+
+	seconds << std::setfill('0') << std::setw(9) << output.time;
+	secondint = int(output.time);
+	secondfloat = output.time - secondint;
+	
+	os << output.date << ":" << setprecision(6) << output.time << setprecision(2) << ", Price: " << output.price << ", Volume: " << setprecision(0) << output.volume;
+	return os;
+}
+
+string convertToTime(Time time){
+	setprecision(6)
 }
 
 int convertDate(const string & datetime){  //take the string of the format 20140804:10:00:00.574914, to convert to integer 20140804
