@@ -4,12 +4,14 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <iomanip>
 
 using namespace std;
 
 ostream & operator << (std::ostream & os, const Tick & output)
 {
-	os << "Date: " << output.date << ", Time: " << output.time << ", Price: " << output.price << ", Volume: " << output.volume << endl;
+	cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
+	os << "Date: " << output.date << ", Time: " << setprecision(6) << output.time << setprecision(2) << ", Price: " << output.price << ", Volume: " << setprecision(0) << output.volume;
 	return os;
 }
 
@@ -51,14 +53,14 @@ bool comparetickBytime(const Tick & tick1, const Tick & tick2){
 	if (tick1.date < tick2.date) return true;
 	else if (tick1.date > tick2.date) return false;
 	else{
-		return (tick1.time > tick2.time) ? false : true;
+		return tick1.time < tick2.time;
 	}
 }
 
 bool comparetickByprice(const Tick & tick1, const Tick & tick2){
-	return (tick1.price < tick2.price) ? false : true;
+	return tick1.price < tick2.price;
 }
 
 bool comparetickByvolumn(const Tick & tick1, const Tick & tick2){
-	return (tick1.volume < tick2.volume) ? false : true;
+	return tick1.volume < tick2.volume;
 }
