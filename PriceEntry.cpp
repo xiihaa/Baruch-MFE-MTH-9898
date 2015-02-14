@@ -17,26 +17,28 @@ ostream & operator << (std::ostream & os, const Tick & output)
 	return os;
 }
 
-ofstream & operator << (std::ofstream & os, const Tick & output)
+ofstream & operator << (std::ofstream & os, const Tick & output) //
 {
 	int secondint;
 	float secondfloat;
+	int mini;
+	int houri;
 	stringstream seconds;
-	string second;
-	string minute;
-	string hour;
-
-	seconds << std::setfill('0') << std::setw(9) << output.time;
-	secondint = int(output.time);
-	secondfloat = output.time - secondint;
+	stringstream mins;
+	stringstream hours;
+	secondint = int(output.time)%60;
+	secondfloat = output.time - int(output.time);
+	int remainder = int(output.time - secondint);
+	int mini = (remainder % 3600)/60;
+	int houri = remainder / 3600;
+	seconds << std::setfill('0') << std::setw(9) << secondint + secondfloat;
+	mins << std::setfill('0') << std::setw(2) << mini;
+	hours << std::setfill('0') << std::setw(2) << mini;
 	
-	os << output.date << ":" << setprecision(6) << output.time << setprecision(2) << ", Price: " << output.price << ", Volume: " << setprecision(0) << output.volume;
+	os << output.date << ":" << hours.str() << ":" << mins.str() << ":" << seconds.str() << "," << output.price<<","<< output.volume;
 	return os;
 }
 
-string convertToTime(Time time){
-	setprecision(6)
-}
 
 int convertDate(const string & datetime){  //take the string of the format 20140804:10:00:00.574914, to convert to integer 20140804
 	int theYear = stoi(datetime.substr(0, 4));
