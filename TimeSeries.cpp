@@ -1,8 +1,9 @@
 #include "TimeSeries.h"
 #include <vector>
 #include <fstream>
-#include <assert.h>
+
 #include <iostream>
+
 
 Scrub::Scrub(){
 }
@@ -31,4 +32,16 @@ Tick Scrub::getentry(int n){
 Tick & Scrub::operator[] (int n){
 	assert(n < TimeS.size() && n >= 0);
 	return TimeS[n];
+}
+
+void Scrub::sortByTime(){
+	std::sort(TimeS.begin(), TimeS.end(), comparetickBytime);
+}
+
+void Scrub::sortByPrice(){
+	std::sort(TimeS.begin(), TimeS.end(), comparetickByprice);
+}
+
+void Scrub::sortByVolumn(){
+	std::sort(TimeS.begin(), TimeS.end(), comparetickByvolumn);
 }
