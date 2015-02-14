@@ -54,3 +54,11 @@ bool comparetickBytime(const Tick & tick1, const Tick & tick2){
 		return (tick1.time > tick2.time) ? false : true;
 	}
 }
+
+bool comparetickByprice(const Tick & tick1, const Tick & tick2){
+	return (tick1.price < tick2.price) ? false : true;
+}
+
+bool comparetickByvolumn(const Tick & tick1, const Tick & tick2){
+	return (tick1.volume < tick2.volume) ? false : true;
+}
