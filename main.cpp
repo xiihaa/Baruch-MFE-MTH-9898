@@ -16,6 +16,10 @@ int main(){
 	cout << A << endl;
 	newseries.readfromCSV(in);
 	cout << 3 << endl;
-	cout << newseries[0];
+	cout << newseries[0] << endl;
+	cout << newseries[1] << endl;
+	cout << comparetickBytime(newseries[0], newseries[1]) << endl;
+	cout << comparetickByprice(newseries[0], newseries[1]) << endl;
+	cout << comparetickByvolumn(newseries[0], newseries[1]) << endl;
 	return 0;
 }
