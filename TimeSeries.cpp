@@ -61,3 +61,16 @@ void Scrub::removeduplicates(){
 	}
 
 }
+
+
+int Scrub::size(){
+	return TimeS.size();
+}
+
+void Scrub::markoutlier(){
+	unsigned long n = size();
+	unsigned long percentile1_4 = n / 4;
+	unsigned long percentile3_4 = n / 4*3;
+
+
+}
