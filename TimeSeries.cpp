@@ -45,3 +45,19 @@ void Scrub::sortByPrice(){
 void Scrub::sortByVolumn(){
 	std::sort(TimeS.begin(), TimeS.end(), comparetickByvolumn);
 }
+
+void Scrub::removeduplicates(){
+	sortByTime();
+	if (TimeS.size() > 1){
+		for (int i = 1; i < TimeS.size(); i++)
+		{
+			if (TimeS[i].date == TimeS[i - 1].date && TimeS[i].time == TimeS[i - 1].time){
+				TimeS[i].flag = 1;
+			}
+		}
+	}
+	else{
+		return;
+	}
+
+}

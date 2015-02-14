@@ -20,4 +20,6 @@ public:
 	void sortByPrice();   //sort the time series by price
 	void sortByVolumn();    //sort the time series by volumn
 
+	void removeduplicates();   //remove duplicates from the time series
+};
 #endif
