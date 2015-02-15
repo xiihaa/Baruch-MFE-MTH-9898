@@ -20,6 +20,9 @@ public:
 	void sortByPrice();   //sort the time series by price
 	void sortByVolumn();    //sort the time series by volumn
 
-	void removeduplicates();   //remove duplicates from the time series
+	void markduplicates();   //mark duplicates from the time series
+	int size();
+	void markoutlierbyPrice(); //mark outlier from the time series by recognize abnormal price
+	void markoutlierbyVolumn(); //mark outlier from the time series by recognize abnormal price
 };
 #endif
