@@ -26,9 +26,9 @@ int main(){
 	FILE* pFile = fopen(fileName, "a");
 	Output2FILE::Stream() = pFile;
 
-	ifstream in("C:\\Users\\xii\\Dropbox\\MFE\\9898\\hw1\\hw1\\data10k.csv"); //input
-	ofstream on1("C:\\Users\\xii\\Dropbox\\MFE\\9898\\hw1\\hw1\\signal01.csv"); // signal output
-	ofstream on2("C:\\Users\\xii\\Dropbox\\MFE\\9898\\hw1\\hw1\\noise01.csv"); // noise output
+	ifstream in("data10k.txt"); //input
+	ofstream on1("signal01.txt"); // signal output
+	ofstream on2("noise01.txt"); // noise output
 	Scrub newseries;
 	FILE_LOG(logINFO) << "Reading data start...";
 	newseries.readfromCSV(in);

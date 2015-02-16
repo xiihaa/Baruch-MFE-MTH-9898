@@ -1,0 +1,15 @@
+INCLUDES = -I./include
+CFLAGS = -pthread -std=c++11 -Wall -w -g -Wl,--no-as-needed -c
+LFLAGS = -pthread -std=c++11 -Wl,--no-as-needed
+CC = g++
+STD = -std=c++11
+
+all: main.o
+	$(CC) $(CFLAGS) -o dataset01 main.o
+main.o: 
+	$(CC) $(CFLAGS) $(INCLUDES) -c $(STD) main.cpp PriceEntry.cpp TimeSeries.cpp csvline_populate.cpp normaltest.cpp Logger.h
+
+clean:
+	rm -rf *.o *.gch
+
+

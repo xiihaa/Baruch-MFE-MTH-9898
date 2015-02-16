@@ -7,7 +7,6 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
-#include "chisqr.h"
 
 using namespace std;
 
