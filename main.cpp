@@ -27,8 +27,10 @@ int main(){
 	Output2FILE::Stream() = pFile;
 
 	ifstream in("data10k.txt"); //input
-	ofstream on1("signal01.txt"); // signal output
-	ofstream on2("noise01.txt"); // noise output
+	ofstream on1;
+	on1.open("signal01.txt"); // signal output
+	ofstream on2;
+	on2.open("noise01.txt"); // noise output
 	Scrub newseries;
 	FILE_LOG(logINFO) << "Reading data start...";
 	newseries.readfromCSV(in);
@@ -51,7 +53,7 @@ int main(){
 
 	newseries.removeflag(on2);  //remove marked entry
 	newseries.fillreturn(); //update the return in each entry
-
+	on2.close();
 	//for (int i = 0; i < 20; i++){
 	//	cout << newseries[i].times << newseries[i].percentreturn << endl;
 	//}
@@ -59,9 +61,13 @@ int main(){
 	//	on1 << newseries[i] << "\n";
 	//}
 	FILE_LOG(logINFO) << "Scrub completed";
+	FILE_LOG(logINFO) << "Write to File";
+		for (int i = 0; i < newseries.size(); i++){
+			on1 << newseries[i] << "\n";
+		}
+	on1.close();
 	FILE_LOG(logINFO) << "Normality Test starts..";
 	Normaltest newnormal(newseries);  //normality test
-	//std::cout << newnormal.mean << "\t" << newnormal.variance << "\t" << newnormal.skewness << "\t" << newnormal.kurtosis << endl;
 	std::cout << newnormal.Jarque_Bera_test() << endl;  //output the p-value
 
 	FILE_LOG(logINFO) << "Normality Test completed";
