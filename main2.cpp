@@ -7,6 +7,8 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <unistd.h>
+#include <sys/mman.h>
 
 typedef Logger<Output2FILE> FILELog;
 
