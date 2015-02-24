@@ -230,7 +230,7 @@ void Scrub::fillreturn(){
 void Scrub::removeflag(std::ofstream & os){
 	for (int i = 0; i < TimeS.size(); i++){
 		if (TimeS[i].flag >0){
-			os << TimeS[i].Initial << "\n";
+		  os << TimeS[i].Initial << "\n";
 			TimeS.erase(TimeS.begin() + i);
 			i--;
 		}

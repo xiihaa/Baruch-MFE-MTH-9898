@@ -66,6 +66,7 @@ Tick::Tick(string CSVstring){
 	times = double(hours)*3600.0 + double(minutes)*60.0 + seconds;
 	price = stof(temp[1]);
 	volume = stoi(temp[2]);
+	flag = 0;
 }
 
 Tick::Tick(){
